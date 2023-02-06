@@ -14,10 +14,56 @@
   ],
   "main": "./extension.js",
   "contributes": {
-    "commands": [{
-      "command": "insertcodetoblock.helloWorld",
-      "title": "Hello World"
-    }]
+    "commands": [
+      {
+        "command": "insertcodetoblock.totrycatch",
+        "title": "to Try Catch"
+      },
+      {
+        "command": "insertcodetoblock.tofuction",
+        "title": "to function"
+      },
+      {
+        "command": "insertcodetoblock.toarrowfuction",
+        "title": "to arrow function"
+      },
+      {
+        "command": "insertcodetoblock.todialogtrack",
+        "title": "set dialog track"
+      }
+    ],
+    "menus": {
+			"editor/context": [
+				{
+					"when": "editorTextFocus",
+					"submenu": "insertcodetoblock.insertparentmenu"
+				}
+			],
+      "insertcodetoblock.insertparentmenu": [
+        {
+          "command": "insertcodetoblock.toarrowfuction",
+          "group": "1"
+        },
+        {
+          "command": "insertcodetoblock.totrycatch",
+          "group": "1"
+        },
+        {
+          "command": "insertcodetoblock.tofuction",
+          "group": "1"
+        },
+        {
+          "command": "insertcodetoblock.todialogtrack",
+          "group": "2"
+        }
+      ]
+		},
+    "submenus": [
+      {
+        "id": "insertcodetoblock.insertparentmenu",
+				"label": "insert code block..."
+      }
+    ]
   },
   "scripts": {
     "lint": "eslint .",
